@@ -1,0 +1,41 @@
+------------------------------------------------------
+normal routes:
+------------------------------------------------------
+
+'/' GET - return: str(Homepage)
+
+------------------------------------------------------
+admin routes:
+------------------------------------------------------
+
+'/admin/add_user/' POST
+args: {'username' : str, 'email' : str, 'password' : str}
+return: str(User Added!) + add the user to db
+
+'/admin/set_admin/' POST - WIP
+
+'/admin/add_file/' POST
+args: {'filename' : str, 'size' : int, 'last_modified' : str*, 'type' : str}
+str* = a str that rapresent a date in this format: DD/MM/YYY
+return: str(File Added!) + add the file to db
+
+‘/admin/add_auth’ POST
+args: {‘user_id’ : int, ‘file_id’ : int, ‘auth_id’ : str}
+return: str(Authorization added!) + add authorization to db
+
+------------------------------------------------------
+storage routes:
+------------------------------------------------------
+
+'/storage/all/' GET - return: str [containing files names - from db]
+
+'/storage' GET
+args: {'id' : int, 'filename' : str}
+return: str [containing a  single file details, searching by id or file name]
+
+------------------------------------------------------
+user routes:
+------------------------------------------------------
+'/user/<username>/<filename>/auth/’ GET
+where: username = actual authenticated username, filename = name of a file in db
+return: str [containing authorization details between a logged user and a file]
