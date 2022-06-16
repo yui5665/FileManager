@@ -12,7 +12,7 @@ auth = HTTPBasicAuth()
 #======================================================
 
 app.config["DEBUG"] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/erik/test.db'  # db location
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/user/test.db'  # db location
 
 db = SQLAlchemy(app)
 
